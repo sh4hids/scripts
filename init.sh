@@ -19,3 +19,15 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ln -sf ~/.dotfiles/zsh/.zshrc ~/.zshrc
 
+mkdir ~/.nvm
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+source ~/.zshrc
+command -v nvm
+nvm install --lts
+node -v
+
+sudo rm -rf /usr/bin/nvim
+wget --quiet https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage --output-document nvim
+chmod +x nvim
+sudo chown root:root nvim
+sudo mv nvim /usr/bin
